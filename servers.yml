@@ -1,3 +1,5 @@
 ---
 - hosts: servers
   become: yes
+  roles:
+    - { role: ubuntu, when: "ansible_distribution == 'Ubuntu'" }

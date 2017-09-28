@@ -1,0 +1,14 @@
+# KEYBOARD CONFIGURATION FILE
+
+# Consult the keyboard(5) manual page.
+
+XKBMODEL="pc105"
+XKBLAYOUT="jp"
+XKBVARIANT=""
+XKBOPTIONS=""
+
+BACKSPACE="guess"
+
+# capslock key
+# XKBOPTIONS="ctrl:nocaps" # CapsLock --> Ctrl
+XKBOPTIONS="ctrl:swapcaps" # CapsLock <-> Ctrl

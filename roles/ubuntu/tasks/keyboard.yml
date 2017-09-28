@@ -1,0 +1,12 @@
+- name: Copy keyboard setting
+  copy:
+    src="keyboard"
+    dest="/etc/default/keyboard"
+    owner=root
+    group=root
+    mode=0440
+  register: kbs
+
+- name: Enable keyboard setting
+  command: dpkg-reconfigure -phigh console-setup
+  when: kbs.changed

@@ -1,0 +1,3 @@
+- name: Update locale to JP
+  command: update-locale LANG="ja_JP.UTF-8"
+  when: install_language_pack|changed

@@ -1,0 +1,9 @@
+- name: Install language-pack and etc.
+  apt: name="{{ item }}"
+  with_items:
+    - "language-pack-ja"
+    - "language-pack-gnome-ja"
+    - "thunderbird-locale-ja"
+    - "fonts-takao"
+    - "ibus-mozc"
+  register: install_language_pack

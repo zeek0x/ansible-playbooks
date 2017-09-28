@@ -1,0 +1,12 @@
+---
+- name: Make a reboot reserve
+  command: echo "This notify is executed at first when all tasks finished."
+  notify:
+    - Reboot server
+
+- import_tasks: mirror.yml
+- import_tasks: apt.yml
+- import_tasks: language-packs.yml
+- import_tasks: locale.yml
+- import_tasks: localtime.yml
+- import_tasks: keyboard.yml
