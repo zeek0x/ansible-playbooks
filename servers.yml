@@ -16,6 +16,7 @@
     - virtualbox
     - vagrant
     - dropbox
+    - tmux
     - software-properties-common
 
     # depneds on software-properties-common

@@ -1,0 +1,10 @@
+---
+- name: Copy .tmux.conf
+  copy:
+    src: ".tmux.conf"
+    dest: "{{ __USERHOME__ }}/.tmux.conf"
+    mode: 0664
+
+- name: Install tmux
+  apt:
+    name: "tmux"
