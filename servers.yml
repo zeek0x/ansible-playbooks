@@ -4,4 +4,14 @@
   roles:
     - { role: ubuntu, when: "ansible_distribution == 'Ubuntu'" }
     - gcc
+    - zip
+    - wget
+    - nmap
+    - jq
+    - mysql-client
+    - sqlite3
+    - thunderbird
+    - virtualbox
+    - vagrant
+    - dropbox
     - software-properties-common

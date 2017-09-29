@@ -1,0 +1,4 @@
+---
+- name: Install sqlite3
+  apt:
+    name: "sqlite3"
