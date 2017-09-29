@@ -1,0 +1,14 @@
+---
+- name: Install pyenv
+  git:
+    repo: https://github.com/yyuu/pyenv.git
+    dest: "{{ __USERHOME__ }}/.pyenv"
+    update: yes
+  register: install_pyenv
+
+- name: Install pyenv-virtualenv
+  git:
+    repo: https://github.com/pyenv/pyenv-virtualenv.git
+    dest: "{{ __USERHOME__ }}/.pyenv/plugins/pyenv-virtualenv"
+    update: yes
+  when: install_pyenv

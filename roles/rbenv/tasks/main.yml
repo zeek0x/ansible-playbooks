@@ -1,0 +1,33 @@
+---
+- name: Install rbenv depencies
+  apt:
+    name: "{{ item }}"
+    update_cache: yes
+  with_items:
+    - autoconf
+    - bison
+    - build-essential
+    - libssl-dev
+    - libyaml-dev
+    - libreadline6-dev
+    - zlib1g-dev
+    - libncurses5-dev
+    - libffi-dev
+    - libgdbm3
+    - libgdbm-dev
+  register: install_rbenv_dependencies
+
+- name: Install rbenv
+  git:
+    repo: https://github.com/sstephenson/rbenv.git
+    dest: "{{ __USERHOME__ }}/.rbenv"
+    update: yes
+  register: install_rbenv
+  when: install_rbenv_dependencies
+
+- name: Install ruby build
+  git:
+    repo: https://github.com/sstephenson/ruby-build.git
+    dest: "{{ __USERHOME__ }}/.rbenv/plugins/ruby-build"
+    update: yes
+  when: install_rbenv

@@ -1,6 +1,8 @@
 ---
 - hosts: servers
   become: yes
+  vars:
+    __USERHOME__: "/home/{{ ansible_env.SUDO_USER }}"
   roles:
     - { role: ubuntu, when: "ansible_distribution == 'Ubuntu'" }
     - gcc
@@ -20,3 +22,9 @@
     - atom
     - libreoffice
     - git
+
+    # dpends on git
+    - gibo
+    - nvm
+    - pyenv
+    - rbenv
