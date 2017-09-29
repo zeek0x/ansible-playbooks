@@ -6,8 +6,7 @@
 
 - import_tasks: mirror.yml
 - import_tasks: apt.yml
-- import_tasks: language-packs.yml
-- import_tasks: locale.yml
+- import_tasks: language.yml
 - import_tasks: localtime.yml
 - import_tasks: home-dir.yml
 - import_tasks: keyboard.yml

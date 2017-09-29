@@ -1,10 +1,11 @@
+---
 - name: Copy keyboard setting
   copy:
-    src="keyboard"
-    dest="/etc/default/keyboard"
-    owner=root
-    group=root
-    mode=0440
+    src: "keyboard"
+    dest: "/etc/default/keyboard"
+    owner: root
+    group: root
+    mode: 0440
   register: kbs
 
 - name: Enable keyboard setting

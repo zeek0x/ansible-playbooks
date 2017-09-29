@@ -1,0 +1,9 @@
+---
+- name: Install xdg-user-dirs-gtk
+  apt:
+    name: "xdg-user-dirs-gtk"
+  register: install_xdg_user_dirs_gtk
+
+- name: Change home dirs
+  shell: LANGUAGE=C LC_MESSAGES=C xdg-user-dirs-gtk-update --force
+  when: install_xdg_user_dirs_gtk

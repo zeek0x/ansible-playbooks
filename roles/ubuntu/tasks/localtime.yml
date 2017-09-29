@@ -1,6 +1,7 @@
+---
 - name: Update localtime to Asia/Tokyo
   file:
-    dest="/etc/localtime"
-    src="/usr/share/zoneinfo/Asia/Tokyo"
-    state=link
-    force=yes
+    dest: "/etc/localtime"
+    src: "/usr/share/zoneinfo/Asia/Tokyo"
+    state: link
+    force: yes
