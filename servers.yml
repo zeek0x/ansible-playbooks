@@ -4,3 +4,4 @@
   roles:
     - { role: ubuntu, when: "ansible_distribution == 'Ubuntu'" }
     - gcc
+    - software-properties-common
