@@ -1,0 +1,15 @@
+---
+- name: Add libreoffice repository
+  apt_repository:
+    repo: "ppa:libreoffice/ppa"
+  register: add_libreoffice_repository
+
+- name: Install libreoffice and etc.
+  apt:
+    name: "{{ item }}"
+    update_cache: yes
+  with_items:
+    - "libreoffice"
+    - "libreoffice-l10n-ja"
+    - "libreoffice-help-ja"
+  when: add_libreoffice_repository

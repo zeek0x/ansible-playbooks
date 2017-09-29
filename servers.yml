@@ -15,3 +15,8 @@
     - vagrant
     - dropbox
     - software-properties-common
+
+    # depneds on software-properties-common
+    - atom
+    - libreoffice
+    - git
