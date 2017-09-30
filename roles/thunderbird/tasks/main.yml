@@ -1,5 +1,0 @@
----
-- name: Install thunderbird
-  apt:
-    name: "thunderbird"
-  become: yes

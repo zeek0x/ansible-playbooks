@@ -1,0 +1,99 @@
+---
+packages:
+  gcc:
+    state: latest
+
+  direnv:
+    state: latest
+
+  jq:
+    state: latest
+
+  nmap:
+    state: latest
+
+  mysql-client:
+    state: latest
+
+  sqlite3:
+    state: latest
+
+  software-properties-common:
+    state: latest
+
+  thunderbird:
+    state: latest
+
+  tmux:
+    state: latest
+    files: .tmux.conf
+
+  xsel:
+    state: latest
+
+  virtualbox:
+    state: latest
+
+  vagrant:
+    state: latest
+
+  wget:
+    state: latest
+
+  zip:
+    state: latest
+
+  ansible:
+    state: latest
+    repo: "ppa:ansible/ansible"
+
+  atom:
+    state: latest
+    repo: "ppa:webupd8team/atom"
+
+  libreoffice:
+    state: latest
+    repo: "ppa:libreoffice/ppa"
+
+  libreoffice-l10n-ja:
+    state: latest
+
+  libreoffice-help-ja:
+    state: latest
+
+  git:
+    state: latest
+    repo: "ppa:git-core/ppa"
+
+  autoconf:
+    state: present
+
+  bison:
+    state: present
+
+  build-essential:
+    state: present
+
+  libssl-dev:
+    state: present
+
+  libyaml-dev:
+    state: present
+
+  libreadline6-dev:
+    state: present
+
+  zlib1g-dev:
+    state: present
+
+  libncurses5-dev:
+    state: present
+
+  libffi-dev:
+    state: present
+
+  libgdbm3:
+    state: present
+
+  libgdbm-dev:
+    state: present

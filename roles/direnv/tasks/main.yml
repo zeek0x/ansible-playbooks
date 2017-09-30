@@ -1,5 +1,0 @@
----
-- name: Install direnv
-  apt:
-    name: "direnv"
-  become: yes

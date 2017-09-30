@@ -2,32 +2,6 @@
 - hosts: servers
   roles:
     - { role: ubuntu, when: "ansible_distribution == 'Ubuntu'" }
-    - gcc
-    - zip
-    - wget
-    - nmap
-    - jq
-    - mysql-client
-    - sqlite3
-    - thunderbird
-    - virtualbox
-    - vagrant
-    - vivaldi
-    - tmux
-    - xsel
-    - direnv
-    - software-properties-common
-
-    # depneds on software-properties-common
-    - ansible
-    - atom
-    - dropbox
-    - libreoffice
+    - ppa
+    - deb
     - git
-    - vivaldi
-
-    # dpends on git
-    - gibo
-    - nvm
-    - pyenv
-    - rbenv

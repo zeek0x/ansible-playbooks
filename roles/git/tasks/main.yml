@@ -1,13 +1,17 @@
 ---
-- name: Add git-core repository
-  apt_repository:
-    repo: "ppa:git-core/ppa"
-  become: yes
-  register: add_git_core_repository
+- name: Download git repositories
+  git:
+    repo: "{{ item.value.repo }}"
+    dest: "{{ item.value.dest }}"
+    update: yes
+  become: "{{ item.value.become }}"
+  with_dict: "{{ packages }}"
 
-- name: Install git
-  apt:
-    name: "git"
-    update_cache: yes
-  become: yes
-  when: add_git_core_repository
+- name: Make a link
+  file:
+    src: "{{ item.value.link.src }}"
+    dest: "{{ item.value.link.dest }}"
+    state: link
+  become: "{{ item.value.link.become }}"
+  when: "'link' in item.value"
+  with_dict: "{{ packages }}"

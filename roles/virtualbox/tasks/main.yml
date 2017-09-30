@@ -1,5 +1,0 @@
----
-- name: Install virtualbox
-  apt:
-    name: "virtualbox"
-  become: yes

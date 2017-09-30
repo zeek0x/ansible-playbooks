@@ -1,0 +1,15 @@
+---
+- name: Download deb packages
+  get_url:
+    url: "{{ item.value.url }}"
+    dest: "/var/tmp/{{ item.key }}.deb"
+    mode: 0744
+    validate_certs: False
+  with_dict: "{{ packages }}"
+
+- name: Install deb packages
+  apt:
+    deb: "/var/tmp/{{ item.key }}.deb"
+    install_recommends: yes
+  become: yes
+  with_dict: "{{ packages }}"

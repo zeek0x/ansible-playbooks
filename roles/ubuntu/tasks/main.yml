@@ -1,13 +1,57 @@
 ---
-- name: Make a reboot reserve
-  command: echo "This notify is executed at first when all tasks finished."
-  notify:
-    - Reboot server
+- name: Change mirror
+  replace:
+    dest: "/etc/apt/sources.list"
+    regexp: http://(archive|security)\.ubuntu\.com/ubuntu(.+)
+    replace: http://ftp.riken.go.jp/Linux/ubuntu\2
+  become: yes
 
-- import_tasks: mirror.yml
-- import_tasks: apt.yml
-- import_tasks: language.yml
-- import_tasks: localtime.yml
-- import_tasks: home-dir.yml
-- import_tasks: bashrc.yml
-- import_tasks: keyboard.yml
+- name: Update localtime to Asia/Tokyo
+  file:
+    dest: "/etc/localtime"
+    src: "/usr/share/zoneinfo/Asia/Tokyo"
+    state: link
+    force: yes
+  become: yes
+
+- name: Install language-pack and etc.
+  apt:
+    name: "{{ item }}"
+  with_items:
+    - "language-pack-ja"
+    - "language-pack-gnome-ja"
+    - "thunderbird-locale-ja"
+    - "fonts-takao"
+    - "ibus-mozc"
+  become: yes
+  notify: Update locale to JP
+
+- name: Install xdg-user-dirs-gtk
+  apt:
+    name: "xdg-user-dirs-gtk"
+  become: yes
+  notify:
+    - Change home dir
+
+- name: Place keyboard setting
+  copy:
+    src: "keyboard"
+    dest: "/etc/default/keyboard"
+    owner: root
+    group: root
+    mode: 0440
+  become: yes
+  notify:
+    - Enable keyboard setting
+
+- name: Place .bashrc
+  copy:
+    src: ".bashrc"
+    dest: "{{ ansible_env.HOME }}/.bashrc"
+    mode: 0644
+
+- name: Place .tmux.conf
+  copy:
+    src: ".tmux.conf"
+    dest: "{{ ansible_env.HOME }}/.tmux.conf"
+    mode: 0644

@@ -1,0 +1,13 @@
+---
+packages:
+  vivaldi:
+    url: https://downloads.vivaldi.com/stable/vivaldi-stable_1.12.955.38-1_amd64.deb
+    mode: 0744
+
+  slack:
+    url: https://downloads.slack-edge.com/linux_releases/slack-desktop-2.8.1-amd64.deb
+    mode: 0744
+
+  dropbox:
+    url: https://www.dropbox.com/download?dl=packages/ubuntu/dropbox_2015.10.28_amd64.deb
+    mode: 0774

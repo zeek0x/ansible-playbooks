@@ -1,0 +1,26 @@
+---
+- name: Add repositories
+  apt_repository:
+    repo: "{{ item.value.repo }}"
+    state: present
+    update_cache: no
+  become: yes
+  when: "'repo' in item.value"
+  with_dict: "{{ packages }}"
+
+- name: Update cache
+  apt:
+    update_cache: yes
+  become: yes
+
+- name: Install packages
+  apt:
+    name: "{{ item.key }}"
+    state: "{{ item.value.state }}"
+  become: yes
+  with_dict: "{{ packages }}"
+
+- name: Upgrade apt packages
+  apt:
+    upgrade: dist
+  become: yes

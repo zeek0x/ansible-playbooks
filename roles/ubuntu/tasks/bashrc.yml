@@ -1,6 +1,0 @@
----
-- name: Copy .bashrc
-  copy:
-    src: ".bashrc"
-    dest: "{{ ansible_env.HOME }}/.bashrc"
-    mode: 0744

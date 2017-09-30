@@ -1,5 +1,0 @@
----
-- name: Install vagrant
-  apt:
-    name: "vagrant"
-  become: yes

@@ -1,0 +1,31 @@
+---
+packages:
+  gibo:
+    repo: https://github.com/simonwhitaker/gibo.git
+    dest: "/usr/local/src/gibo"
+    become: yes
+    link:
+      src: "/usr/local/src/gibo/gibo"
+      dest: "/usr/local/bin/gibo"
+      state: link
+      become: yes
+
+  nvm:
+    repo: https://github.com/creationix/nvm.git
+    dest: "{{ ansible_env.HOME }}/.nvm"
+    become: no
+
+  pyenv:
+    repo: https://github.com/yyuu/pyenv.git
+    dest: "{{ ansible_env.HOME }}/.pyenv"
+    become: no
+
+  pyenv-virtualenv:
+    repo: https://github.com/pyenv/pyenv-virtualenv.git
+    dest: "{{ ansible_env.HOME }}/.pyenv/plugins/pyenv-virtualenv"
+    become: no
+
+  rbenv:
+    repo: https://github.com/sstephenson/rbenv.git
+    dest: "{{ ansible_env.HOME }}/.rbenv"
+    become: no
