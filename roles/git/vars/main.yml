@@ -12,20 +12,20 @@ packages:
 
   nvm:
     repo: https://github.com/creationix/nvm.git
-    dest: "{{ ansible_env.HOME }}/.nvm"
+    dest: "{{ homedir }}/.nvm"
     become: no
 
   pyenv:
     repo: https://github.com/yyuu/pyenv.git
-    dest: "{{ ansible_env.HOME }}/.pyenv"
+    dest: "{{ homedir }}/.pyenv"
     become: no
 
   pyenv-virtualenv:
     repo: https://github.com/pyenv/pyenv-virtualenv.git
-    dest: "{{ ansible_env.HOME }}/.pyenv/plugins/pyenv-virtualenv"
+    dest: "{{ homedir }}/.pyenv/plugins/pyenv-virtualenv"
     become: no
 
   rbenv:
     repo: https://github.com/sstephenson/rbenv.git
-    dest: "{{ ansible_env.HOME }}/.rbenv"
+    dest: "{{ homedir }}/.rbenv"
     become: no

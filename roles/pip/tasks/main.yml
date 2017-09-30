@@ -1,0 +1,6 @@
+---
+- name: Install pip packages
+  pip:
+    name: "{{ item.key }}"
+    state: "{{ item.value.state }}"
+  with_dict: "{{ packages }}"

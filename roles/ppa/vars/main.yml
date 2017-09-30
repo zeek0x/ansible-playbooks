@@ -61,6 +61,19 @@ packages:
   libreoffice-help-ja:
     state: latest
 
+  python:
+    state: latest
+
+  python-dev:
+    state: latest
+
+  python-pip:
+    state: latest
+
+  ruby:
+    state: latest
+    repo: "ppa:brightbox/ruby-ng"
+
   git:
     state: latest
     repo: "ppa:git-core/ppa"

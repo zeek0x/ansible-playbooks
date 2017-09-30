@@ -1,0 +1,7 @@
+---
+packages:
+  docker-compose:
+    state: latest
+
+  pep8:
+    state: latest

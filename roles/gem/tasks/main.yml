@@ -1,0 +1,9 @@
+---
+- name: Install gem packages
+  gem:
+    name: "{{ item.key }}"
+    state: "{{ item.value.state }}"
+    executable: "{{ homedir }}/.rbenv/shims/gem"
+    user_install: no
+  become: yes
+  with_dict: "{{ packages }}"

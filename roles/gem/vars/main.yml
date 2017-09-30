@@ -1,0 +1,7 @@
+---
+packages:
+  bundler:
+    state: latest
+
+  rake:
+    state: latest
