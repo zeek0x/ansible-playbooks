@@ -2,10 +2,12 @@
 - name: Add atom repository
   apt_repository:
     repo: "ppa:webupd8team/atom"
+  become: yes
   register: add_atom_repository
 
 - name: Install atom
   apt:
     name: "atom"
     update_cache: yes
+  become: yes
   when: add_atom_repository

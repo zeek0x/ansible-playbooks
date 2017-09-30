@@ -6,8 +6,10 @@
     owner: root
     group: root
     mode: 0440
+  become: yes
   register: kbs
 
 - name: Enable keyboard setting
   command: dpkg-reconfigure -phigh console-setup
+  become: yes
   when: kbs.changed

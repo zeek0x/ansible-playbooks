@@ -4,8 +4,12 @@
     url: https://downloads.vivaldi.com/stable/vivaldi-stable_1.12.955.38-1_amd64.deb
     dest: "/var/tmp/vivaldi-stable_1.12.955.38-1_amd64.deb"
     mode: 0744
+  become: yes
+  register: download_vivaldi
 
 - name: Install vivaldi deb
   apt:
     deb: "/var/tmp/vivaldi-stable_1.12.955.38-1_amd64.deb"
     install_recommends: yes
+  become: yes
+  when: download_vivaldi

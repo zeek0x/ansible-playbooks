@@ -2,6 +2,7 @@
 - name: Install xdg-user-dirs-gtk
   apt:
     name: "xdg-user-dirs-gtk"
+  become: yes
   register: install_xdg_user_dirs_gtk
 
 - name: Change home dirs

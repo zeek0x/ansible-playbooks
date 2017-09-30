@@ -1,8 +1,5 @@
 ---
 - hosts: servers
-  become: yes
-  vars:
-    __USERHOME__: "/home/{{ ansible_env.SUDO_USER }}"
   roles:
     - { role: ubuntu, when: "ansible_distribution == 'Ubuntu'" }
     - gcc
@@ -24,6 +21,7 @@
     - dropbox
     - libreoffice
     - git
+    - vivaldi
 
     # dpends on git
     - gibo

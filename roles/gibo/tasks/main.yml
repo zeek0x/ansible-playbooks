@@ -4,6 +4,7 @@
     repo: https://github.com/simonwhitaker/gibo.git
     dest: "/usr/local/src/gibo"
     update: yes
+  become: yes
   register: install_gibo
 
 - name: Make a link to gibo
@@ -11,4 +12,5 @@
     src: "/usr/local/src/gibo/gibo"
     dest: "/usr/local/bin/gibo"
     state: link
+  become: yes
   when: install_gibo

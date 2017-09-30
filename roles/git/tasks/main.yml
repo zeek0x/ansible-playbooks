@@ -2,10 +2,12 @@
 - name: Add git-core repository
   apt_repository:
     repo: "ppa:git-core/ppa"
+  become: yes
   register: add_git_core_repository
 
 - name: Install git
   apt:
     name: "git"
     update_cache: yes
+  become: yes
   when: add_git_core_repository

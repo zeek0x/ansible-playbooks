@@ -15,12 +15,13 @@
     - libffi-dev
     - libgdbm3
     - libgdbm-dev
+  become: yes
   register: install_rbenv_dependencies
 
 - name: Install rbenv
   git:
     repo: https://github.com/sstephenson/rbenv.git
-    dest: "{{ __USERHOME__ }}/.rbenv"
+    dest: "{{ ansible_env.HOME }}/.rbenv"
     update: yes
   register: install_rbenv
   when: install_rbenv_dependencies
@@ -28,6 +29,6 @@
 - name: Install ruby build
   git:
     repo: https://github.com/sstephenson/ruby-build.git
-    dest: "{{ __USERHOME__ }}/.rbenv/plugins/ruby-build"
+    dest: "{{ ansible_env.HOME }}/.rbenv/plugins/ruby-build"
     update: yes
   when: install_rbenv

@@ -2,6 +2,7 @@
 - name: Add libreoffice repository
   apt_repository:
     repo: "ppa:libreoffice/ppa"
+  become: yes
   register: add_libreoffice_repository
 
 - name: Install libreoffice and etc.
@@ -12,4 +13,5 @@
     - "libreoffice"
     - "libreoffice-l10n-ja"
     - "libreoffice-help-ja"
+  become: yes
   when: add_libreoffice_repository
