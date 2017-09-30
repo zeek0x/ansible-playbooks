@@ -1,0 +1,13 @@
+---
+- name: Add ansible repository
+  apt_repository:
+    repo: "ppa:ansible/ansible"
+  become: yes
+  register: add_ansible_repository
+
+- name: Install ansible
+  apt:
+    name: "ansible"
+    update_cache: yes
+  become: yes
+  when: add_ansible_repository

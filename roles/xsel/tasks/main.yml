@@ -1,0 +1,5 @@
+---
+- name: Install xsel
+  apt:
+    name: "xsel"
+  become: yes

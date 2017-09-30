@@ -14,9 +14,12 @@
     - vagrant
     - vivaldi
     - tmux
+    - xsel
+    - direnv
     - software-properties-common
 
     # depneds on software-properties-common
+    - ansible
     - atom
     - dropbox
     - libreoffice
