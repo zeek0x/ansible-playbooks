@@ -1,0 +1,6 @@
+---
+- name: Copy .bashrc
+  copy:
+    src: ".bashrc"
+    dest: "{{ __USERHOME__ }}/.bashrc"
+    mode: 0744
