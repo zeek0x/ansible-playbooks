@@ -6,3 +6,4 @@
     - deb
     - git
     - docker
+    - circleci

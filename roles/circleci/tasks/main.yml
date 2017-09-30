@@ -1,0 +1,7 @@
+---
+- name: Install circleci
+  get_url:
+    url:  https://circle-downloads.s3.amazonaws.com/releases/build_agent_wrapper/circleci
+    dest: "/usr/local/bin/circleci"
+    mode: 0755
+  become: yes
