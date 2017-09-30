@@ -4,11 +4,6 @@ packages:
     repo: https://github.com/simonwhitaker/gibo.git
     dest: "/usr/local/src/gibo"
     become: yes
-    link:
-      src: "/usr/local/src/gibo/gibo"
-      dest: "/usr/local/bin/gibo"
-      state: link
-      become: yes
 
   nvm:
     repo: https://github.com/creationix/nvm.git
@@ -20,12 +15,22 @@ packages:
     dest: "{{ homedir }}/.pyenv"
     become: no
 
-  pyenv-virtualenv:
-    repo: https://github.com/pyenv/pyenv-virtualenv.git
-    dest: "{{ homedir }}/.pyenv/plugins/pyenv-virtualenv"
-    become: no
-
   rbenv:
     repo: https://github.com/sstephenson/rbenv.git
     dest: "{{ homedir }}/.rbenv"
     become: no
+
+plugin_packages:
+  pyenv-virtualenv:
+    repo: https://github.com/pyenv/pyenv-virtualenv.git
+    dest: "{{ homedir }}/.pyenv/plugins/pyenv-virtualenv"
+
+  ruby-build:
+    repo: https://github.com/rbenv/ruby-build.git
+    dest: "{{ homedir }}/.rbenv/plugins/ruby-build"
+
+link:
+  gibo:
+    src: "/usr/local/src/gibo/gibo"
+    dest: "/usr/local/bin/gibo"
+    become: yes

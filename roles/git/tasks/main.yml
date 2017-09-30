@@ -7,11 +7,17 @@
   become: "{{ item.value.become }}"
   with_dict: "{{ packages }}"
 
+- name: Download plugin git repositories
+  git:
+    repo: "{{ item.value.repo }}"
+    dest: "{{ item.value.dest }}"
+    update: yes
+  with_dict: "{{ plugin_packages }}"
+
 - name: Make a link
   file:
-    src: "{{ item.value.link.src }}"
-    dest: "{{ item.value.link.dest }}"
+    src: "{{ item.value.src }}"
+    dest: "{{ item.value.dest }}"
     state: link
-  become: "{{ item.value.link.become }}"
-  when: "'link' in item.value"
-  with_dict: "{{ packages }}"
+  become: "{{ item.value.become }}"
+  with_dict: "{{ link }}"
