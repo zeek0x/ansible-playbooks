@@ -47,11 +47,11 @@
 - name: Place .bashrc
   copy:
     src: ".bashrc"
-    dest: "{{ ansible_env.HOME }}/.bashrc"
+    dest: "{{ homedir }}/.bashrc"
     mode: 0744
 
 - name: Place .tmux.conf
   copy:
     src: ".tmux.conf"
-    dest: "{{ ansible_env.HOME }}/.tmux.conf"
+    dest: "{{ homedir }}/.tmux.conf"
     mode: 0744
