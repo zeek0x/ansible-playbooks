@@ -43,7 +43,7 @@
     name: "xdg-user-dirs-gtk"
   become: yes
   notify:
-    - Change home dir
+    - Change home dirs
 
 - name: Place keyboard setting
   copy:
