@@ -33,6 +33,18 @@
   notify:
     - Change home dir
 
+- name: Add DNS address
+  lineinfile:
+    dest: "/etc/resolvconf/resolv.conf.d/base"
+    line: "nameserver 8.8.8.8"
+  become: yes
+  register: add_DNS_address
+
+- name: Reboot server
+  command: shutdown -r now
+  become: yes
+  when: add_DNS_address|change
+
 - name: Place keyboard setting
   copy:
     src: "keyboard"
