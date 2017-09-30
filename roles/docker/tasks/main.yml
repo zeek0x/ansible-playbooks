@@ -1,0 +1,48 @@
+---
+- name: Install docker dependencies
+  apt:
+    name: "{{ item }}"
+    state: present
+  become: yes
+  with_items:
+    - apt-transport-https
+    - ca-certificates
+    - curl
+    - lsb
+    - linux-image-extra-virtual
+    - linux-image-extra-{{ ansible_kernel }}
+
+- name: Download docker apt key
+  apt_key:
+    url: https://download.docker.com/linux/ubuntu/gpg
+    state: present
+  become: yes
+
+- name: Define lsb_release
+  shell: lsb_release -cs
+  register: lsb_release
+
+- name: Add docker repository
+  shell: add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ lsb_release.stdout }} stable"
+  become: yes
+
+- name: Install docker-ce
+  apt:
+    name: docker-ce
+    state: present
+    update_cache: yes
+  become: yes
+  notify:
+    - Restart docker
+
+- name: Create docker group
+  group:
+    name: docker
+  become: yes
+
+- name: Add user to docker group
+  user:
+    name: "{{ ansible_env.USER }}"
+    groups: docker
+    append: yes
+  become: yes
