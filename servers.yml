@@ -15,12 +15,13 @@
     - thunderbird
     - virtualbox
     - vagrant
-    - dropbox
+    - vivaldi
     - tmux
     - software-properties-common
 
     # depneds on software-properties-common
     - atom
+    - dropbox
     - libreoffice
     - git
 
