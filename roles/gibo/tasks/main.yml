@@ -2,13 +2,13 @@
 - name: Install gibo
   git:
     repo: https://github.com/simonwhitaker/gibo.git
-    dest: /usr/local/src/gibo
+    dest: "/usr/local/src/gibo"
     update: yes
   register: install_gibo
 
 - name: Make a link to gibo
   file:
-    src: /usr/local/src/gibo
-    dest: /usr/local/bin/gibo
+    src: "/usr/local/src/gibo/gibo"
+    dest: "/usr/local/bin/gibo"
     state: link
   when: install_gibo

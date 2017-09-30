@@ -2,5 +2,5 @@
 - name: Install nvm
   git:
     repo: https://github.com/creationix/nvm.git
-    dest: "{ __USERHOME__ }}/.nvm"
+    dest: "{{ __USERHOME__ }}/.nvm"
     update: yes
