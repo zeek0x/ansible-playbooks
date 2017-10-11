@@ -11,7 +11,7 @@
   poll: 0
 
 - name: Change home dirs
-  shell: LANGUAGE=C LC_MESSAGES=C xdg-user-dirs-gtk-update --force
+  shell: LANG=C xdg-user-dirs-update --force
   async: 1
   poll: 0
 

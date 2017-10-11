@@ -11,12 +11,14 @@
 - name: Update cache
   apt:
     update_cache: yes
+    cache_valid_time: 0
   become: yes
 
 - name: Install packages
   apt:
     name: "{{ item.key }}"
     state: "{{ item.value.state }}"
+    install_recommends: yes
   become: yes
   with_dict: "{{ packages }}"
 
