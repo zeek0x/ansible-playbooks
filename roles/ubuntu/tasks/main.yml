@@ -14,8 +14,8 @@
 - name: Change mirror
   replace:
     dest: "/etc/apt/sources.list"
-    regexp: http://(archive|security)\.ubuntu\.com/ubuntu(.+)
-    replace: http://ftp.riken.go.jp/Linux/ubuntu\2
+    regexp: http://(jp\.)?archive\.ubuntu\.com/ubuntu
+    replace: http://ftp.riken.go.jp/Linux/ubuntu
   become: yes
 
 - name: Update localtime to Asia/Tokyo
