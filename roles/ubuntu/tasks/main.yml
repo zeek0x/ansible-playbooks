@@ -42,8 +42,7 @@
   apt:
     name: "xdg-user-dirs-gtk"
   become: yes
-  notify:
-    - Change home dirs
+  notify: Change home dirs
 
 - name: Place keyboard setting
   copy:
