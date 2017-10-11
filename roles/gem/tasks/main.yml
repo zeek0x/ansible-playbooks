@@ -3,7 +3,7 @@
   gem:
     name: "{{ item.key }}"
     state: "{{ item.value.state }}"
-    executable: "{{ homedir }}/.rbenv/shims/gem"
+    executable: "/usr/bin/gem"
     user_install: no
   become: yes
   with_dict: "{{ packages }}"
