@@ -14,9 +14,12 @@ my ansible template.
 
 ### パッケージ
 - gcc
+- net-tools
+- curl
+- wget
+- nmap
 - direnv
 - jq
-- nmap
 - mysql-client
 - sqlite3
 - software-properties-common
@@ -25,7 +28,6 @@ my ansible template.
 - xsel
 - virtualbox
 - vagrant
-- wget
 - zip
 - ansible
 - atom

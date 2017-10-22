@@ -3,13 +3,22 @@ packages:
   gcc:
     state: latest
 
+  net-tools:
+    state: latest
+
+  curl:
+    state: latest
+
+  wget:
+    state: latest
+
+  nmap:
+    state: latest
+
   direnv:
     state: latest
 
   jq:
-    state: latest
-
-  nmap:
     state: latest
 
   mysql-client:
@@ -36,9 +45,6 @@ packages:
   vagrant:
     state: latest
 
-  wget:
-    state: latest
-
   zip:
     state: latest
 
@@ -60,13 +66,13 @@ packages:
   libreoffice-help-ja:
     state: latest
 
-  python:
+  python3:
     state: latest
 
-  python-dev:
+  python3-dev:
     state: latest
 
-  python-pip:
+  python3-pip:
     state: latest
 
   ruby:
