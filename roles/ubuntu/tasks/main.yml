@@ -39,30 +39,41 @@
     - "fonts-takao"
     - "ibus-mozc"
   become: yes
-  notify: Update locale to JP
+
+- name: create locale ja_JP.UTF-8
+  locale_gen:
+    name: ja_JP.UTF-8
+
+- name: set locale to ja_JP.UTF-8
+  command: update-locale LANG=ja_JP.UTF-8
+  become: yes
 
 - name: Install xdg-user-dirs-gtk
   apt:
     name: "xdg-user-dirs-gtk"
   become: yes
-  notify: Change home dirs
 
-- name: Place keyboard setting
-  copy:
-    src: "keyboard"
+- name: Change home dirs
+  command: LANG=C xdg-user-dirs-update --force
+
+- name: Change keyboard settings
+  blockinfile:
     dest: "/etc/default/keyboard"
-    owner: root
-    group: root
-    mode: 0440
+    block: |
+      {{ keyboard.content }}
   become: yes
-  notify:
-    - Enable keyboard setting
+  register: change_keyboard
 
-- name: Place .bashrc
-  copy:
-    src: ".bashrc"
+- name: Enable keyboard setting
+  command: dpkg-reconfigure -phigh console-setup
+  become: yes
+  when: change_keyboard|change
+
+- name: Change .bashrc
+  blockinfile:
     dest: "{{ homedir }}/.bashrc"
-    mode: 0744
+    block: |
+      {{ bashrc.content }}
 
 - name: Place .tmux.conf
   copy:

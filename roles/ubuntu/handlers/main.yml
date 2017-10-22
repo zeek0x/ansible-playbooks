@@ -3,20 +3,3 @@
   shell: sleep 1 && shutdown -r now
   async: 1
   poll: 0
-
-- name: Update locale to JP
-  command: update-locale LANG="ja_JP.UTF-8"
-  become: yes
-  async: 1
-  poll: 0
-
-- name: Change home dirs
-  shell: LANG=C xdg-user-dirs-update --force
-  async: 1
-  poll: 0
-
-- name: Enable keyboard setting
-  command: dpkg-reconfigure -phigh console-setup
-  become: yes
-  async: 1
-  poll: 0
