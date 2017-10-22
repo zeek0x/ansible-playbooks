@@ -3,4 +3,5 @@
   pip:
     name: "{{ item.key }}"
     state: "{{ item.value.state }}"
+    executable: pip3
   with_dict: "{{ packages }}"

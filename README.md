@@ -32,8 +32,8 @@ my ansible template.
 - ansible
 - atom
 - libreoffice
-- python
-- pip
+- python3
+- pip3
 - ruby
 - git
 - nvm
@@ -66,26 +66,20 @@ ssh ではパスワードログインを使用
 LiLi や unetbootin など
 
 #### ssh 設定
-- root パスワード設定
+- ネットワーク有効化
+
 ```
+$ sudo apt-get update
+$ sudo apt-get install python3
+$ sudo -s /usr/bin/python3 /usr/bin/python
 $ sudo passwd root
 rootpass
-```
 
-- ネットワーク有効化
-- openssh-server インストール
-```
 $ sudo apt-get install openssh-server
-```
-
-- /etc/ssh/sshd_config で以下を書き換え
-```
+$ sudo vi /etc/ssh/sshd_config
 PermitRootLogin yes
-```
 
-- ssh リロード
-```
-sudo service ssh restart
+$ sudo service ssh restart
 ```
 
 #### 実機情報設定
@@ -98,8 +92,9 @@ production/hosts を書き換え
 host
 
 [servers:vars]
-ansible_ssh_user=root
-ansible_ssh_pass=rootpass
+ansible_ssh_user=user
+ansible_ssh_pass=userpass
+ansible_sudo_pass=rootpass
 hoemdir=/home/ubuntu
 ```
 

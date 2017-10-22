@@ -18,12 +18,15 @@
     state: present
   become: yes
 
+# 2017-10-22 docker-ce artful 未対応
 - name: Define lsb_release
-  shell: lsb_release -cs
-  register: lsb_release
+  shell: lsb_release -cs | sed -e s/artful/zesty/
+  register: lsb
 
 - name: Add docker repository
-  shell: add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ lsb_release.stdout }} stable"
+  apt_repository:
+    repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ lsb.stdout }} stable"
+    state: present
   become: yes
 
 - name: Install docker-ce
@@ -44,4 +47,11 @@
     name: "{{ ansible_env.USER }}"
     groups: docker
     append: yes
+  become: yes
+
+- name: Install docker-compose
+  get_url:
+    url: https://github.com/docker/compose/releases/download/1.17.0-rc1/docker-compose-{{ ansible_system }}-{{ ansible_architecture }}
+    dest: "/usr/local/bin/docker-compose"
+    mode: 0555
   become: yes
