@@ -25,11 +25,8 @@
   become: yes
 
 - name: Update localtime to Asia/Tokyo
-  file:
-    dest: "/etc/localtime"
-    src: "/usr/share/zoneinfo/Asia/Tokyo"
-    state: link
-    force: yes
+  timezone:
+    name: Asia/Tokyo
   become: yes
 
 - name: Install language-pack and etc.
